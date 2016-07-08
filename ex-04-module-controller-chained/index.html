@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular ex-04 Module and Controller Chained</title>
+	<script src="angular.min.js"></script>
+	<script src="script.js"></script>
+</head>
+<body ng-controller="registeredController">
+	<div>
+		{{ message }}
+	</div>
+	<div>
+		First Name: {{ myPerson.firstName }}
+	</div>
+	<div>
+		Last Name: {{ myPerson.surname }}
+	</div>
+	<div>
+		Gender: {{ myPerson.gender }}
+	</div>
+	<div>
+		{{ endMessage }}
+	</div>
+</body>
+</html>
