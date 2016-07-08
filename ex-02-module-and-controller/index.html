@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="myModule">
 <head>
 	<meta charset="UTF-8">
-	<title>Angular-ex-01</title>
+	<title>Angular ex-01 Module and Controller</title>
 	<script src="angular.min.js"></script>
+	<script src="script.js"></script>
 </head>
-<body>
+<body ng-controller="registeredController">
+	<div>
+		{{ message }}
+	</div>
 	<div>
 		<p>20 + 30 = {{20+30}}</p>
 	</div>
@@ -14,6 +18,9 @@
 	</div>
 	<div>
 		<p>The first index name is {{ ['Daniel', 'David', 'John'][0] }}.</p>
+	</div>
+	<div>
+		{{ endMessage }}
 	</div>
 </body>
 </html>
