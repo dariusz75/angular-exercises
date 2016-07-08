@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular ex-05 ng-src directive</title>
+	<script src="angular.min.js"></script>
+	<script src="script.js"></script>
+</head>
+<body ng-controller="registeredController">
+	<div>
+		<p>{{ message }}</p>
+	</div>
+	<div>
+		<p>Country: {{ country.countryName }}</p>
+	</div>
+	<div>
+		<p>Capital: {{ country.capital }}</p>
+	</div>
+	<div>
+		<p>
+		Flag 
+		<img ng-src="{{ country.flag }}" />
+		</p>
+		<p>{{ endMessage }}</p>
+	</div>
+</body>
+</html>
