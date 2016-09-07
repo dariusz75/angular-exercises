@@ -3,71 +3,40 @@
 var myApp = angular
 						.module('myModule', [])
 						.controller('myController', function ($scope) {
+												
+												var technologies = [
+													{
+														name: 'HTML5', 
+														likes: 0, 
+														dislikes: 0
+													},
+													{
+														name: 'CSS3', 
+														likes: 0, 
+														dislikes: 0
+													},
+													{
+														name: 'JavaScript', 
+														likes: 0, 
+														dislikes: 0
+													},
+													{
+														name: 'PHP', 
+														likes: 0, 
+														dislikes: 0
+													},
 
-																					var employees = [ 
-																														{ firstName: 'Ben', lastName: 'Hastings', gender: 'Male',salary: 5500 },
-																														{ firstName: 'John', lastName: 'Smith', gender: 'Male', salary: 6500 },
-																														{ firstName: 'Ana', lastName: 'Tylor', gender: 'Female', salary: 7500 },
-																														{ firstName: 'Josh', lastName: 'Maker', gender: 'Male', salary: 8500 },
-																														{ firstName: 'Sofia', lastName: 'Cool', gender: 'Female', salary: 9500 },
-																													];
+												];
 
-																					var countrie = [
-																														{
-																															name: 'UK',
-																															cities: [
-																																				{name: 'London'},
-																																				{name: 'Bristol'},
-																																				{name: 'Leeds'},
-																																			]
-																														},
-																														{
-																															name: 'Poland',
-																															cities: [
-																																				{name: 'Warsaw'},
-																																				{name: 'Krakow'},
-																																				{name: 'Poznan'},
-																																			]
-																														},
-																														{
-																															name: 'Germany',
-																															cities: [
-																																				{name: 'Berlin'},
-																																				{name: 'Hamburgh'},
-																																				{name: 'Frankfurt'},
-																																			]
-																														},
-																													];
+							$scope.technologies = technologies;
 
-																							var countries = [
-																														{
-																															name: 'UK',
-																															cities: [
-																																				{name: 'London'},
-																																				{name: 'Bristol'},
-																																				{name: 'Leeds'},
-																																			]
-																														},
-																														{
-																															name: 'Poland',
-																															cities: [
-																																				{name: 'Warsaw'},
-																																				{name: 'Krakow'},
-																																				{name: 'Poznan'},
-																																			]
-																														},
-																														{
-																															name: 'Germany',
-																															cities: [
-																																				{name: 'Berlin'},
-																																				{name: 'Hamburgh'},
-																																				{name: 'Frankfurt'},
-																																			]
-																														},
-																													];
+							$scope.incrementLikes = function (technology) {
+								technology.likes++
+							};
 
-
-																					$scope.employees = employees;
-																					$scope.countries = countries;
+							$scope.incrementDislikes = function (technology) {
+								technology.dislikes++
+							};								
 
 											});
+
