@@ -2,66 +2,174 @@
 <html lang="en" ng-app="myModule">
 <head>
 	<meta charset="UTF-8">
-	<title>Angular ex-05 ng-src directive</title>
+	<title>Angular ex-07 ng-repeat directive</title>
 	<script src="angular.min.js"></script>
 	<script src="script.js"></script>
 </head>
 <body>
-	<div ng-controller="myController">
-		<input type="text" ng-model="message" />
-		<p>{{ message }}</p>
+	<div ng-controller="myController">	
+		<table>
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Gender</th>
+					<th>Salary</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="employee in employees">
+					<td>{{ employee.firstName }}</td>
+					<td>{{ employee.lastName }}</td>
+					<td>{{ employee.gender }}</td>
+					<td>{{ employee.salary }}</td>
+				</tr>
+			</tbody>	
+		</table>
 	</div>
+
+	<h3>Another example</h3>
 	<div ng-controller="myController">
-		<input type="text" ng-model="nonFromController" />
-		<p>{{ nonFromController }}</p>
+		<ul>
+			<li ng-repeat="country in countries">
+				{{ country.name }}
+			</li>
+		</ul>
 	</div>
+
 	<h3>More complex example</h3>
+	<div ng-controller="myController">
+		<ul>
+			<li ng-repeat="country in countries">
+				{{ country.name }}
+				<ul>
+					<li ng-repeat="city in country.cities">
+						{{ city.name }}
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
 
-	<table ng-controller="myController">
-		<tr>
-			<td>First Name: </td>
-			<td>{{ employee.firstName }}</td>
-		</tr>
-		<tr>
-			<td>Last Name: </td>
-			<td>{{ employee.lastName}} </td>
-		</tr>
-		<tr>
-			<td>Gender: </td>
-			<td>{{ employee.gender }}</td>
-		</tr>
-	</table>
-
-
-	<!--
-	<table ng-controller="myController">
-		<tr>
-			<td>First Name</td>
-			<td><input type="text" ng-model="employee.firstName" /></td>
-		</tr>
-		<tr>
-			<td>Last Name</td>
-			<td><input type="text" ng-model="employee.lastName" /></td>
-		</tr>
-		<tr>
-			<td>Gender</td>
-			<td><input type="text" ng-model="employee.gender" /></td>
-		</tr>
-	</table>
-	-->
+	<h3>Finding index example</h3>
+	<div ng-controller="myController">
+		<ul>
+			<li ng-repeat="country in countries">
+				{{ country.name }} - the index is {{ $index }}
+				<ul>
+					<li ng-repeat="city in country.cities">
+						{{ city.name }}  - the index is {{ $parent.$index }}.{{ $index }}
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
 
 </body>
 </html>
 
-<!-- 
-ng-model="message" pochodzi z pliku js i zawiera on text - Hallo Angular! 
-W zwiazku z tym, w pierwszym polu input i w pierwszym paragrafie pojawia sie ten sam tekst.
-Wpisujac text w polu input zmieniamy jego wartosc w paragrafie, poniewaz dokonujemy two-way-databinding i Angular updatuje model.
+<!--
+Powyzej mamy przyklad uzycia ng-repeat directive.
+Dane do wyswietlenia w tabeli pochodza z tabeli employees, w pliku js, ktora z kolei zawiera liste obiektow.
 
-Nastepnie mamy kolejne pole input i model ng-model="nonFromController".
-Model ten nie pochodzi z kontrolera wiec nie posiada zadnego przypisanego textu.
-Mimo to Anguler utworzy w pamieci i updatuje model i text ktory wpisujemy w drugim polu input pojawia sie w drugim paragrafie.
+var employees = [ 
+									{ firstName: 'Ben', lastName: 'Hastings', gender: 'Male',salary: 5500 },
+									{ firstName: 'John', lastName: 'Smith', gender: 'Male', salary: 6500 },
+									{ firstName: 'Ana', lastName: 'Tylor', gender: 'Female', salary: 7500 },
+									{ firstName: 'Josh', lastName: 'Maker', gender: 'Male', salary: 8500 },
+									{ firstName: 'Sofia', lastName: 'Cool', gender: 'Female', salary: 9500 },
+								];
 
-<h3>More complex example</h3>
-Ponizej tego tagu rozwiazenie wykorzystujace js object jako zrodlo danych.
+$scope.employees = employees;
+
+
+Nazwa 'employee' w ng-repeat="employee in employees" to nazwa dowolna, przy ktorej pomocy
+referujemy do kolejnych elementow w tabeli.
+Jest to nieco podobne do dzialanie 'for each albo map'.
+
+Za pomoca ponizszego kodu:
+
+<tr ng-repeat="employee in employees">
+	<td>{{ employee.firstName }}</td>
+	<td>{{ employee.lastName }}</td>
+	<td>{{ employee.gender }}</td>
+	<td>{{ employee.salary }}</td>
+</tr>
+
+odwolujemy sie do kazdego elementu (employee - nazwa dowolna) tabeli employees ($scope.employees = employees;
+)
+
+Nastepnie zadamy aby na podstawie danych zebranych z kazdego elementu tabeli, ktory jest obiektem zostala wygenerowana zawartosc tabeli.
+
+
+
+
+
+******* Another example *********
+W pliku js utworzylismy model o nazwie countries wygladajacy jak ponizej
+var countries = [
+									{
+										name: 'UK',
+										cities: [
+															{name: 'London'},
+															{name: 'Bristol'},
+															{name: 'Leeds'},
+														]
+									},
+									{
+										name: 'Poland',
+										cities: [
+															{name: 'Warsaw'},
+															{name: 'Krakow'},
+															{name: 'Poznan'},
+														]
+									},
+									{
+										name: 'Germany',
+										cities: [
+															{name: 'Berlin'},
+															{name: 'Hamburgh'},
+															{name: 'Frankfurt'},
+														]
+									},
+								];
+
+$scope.countries = countries;
+
+
+Zmienna countries to tabela posiadajaca troche bardziej zlozony obiekt, posiadajacy kolejne tabele, itd...
+Referujemy do niej za pomoca 'countries' - $scope.countries = countries;
+
+Po wprowadzeniu nastepujacego kodu do tagu <ul>
+
+<li ng-repeat="country in countries">
+		{{ country.name }}
+</li>
+
+zadamy przeprowadzenia petli w kazdym obiekt w tabeli 'countries' oraz wygenerowanie jego nazwy - 'name' 
+w elemencie <li>
+
+
+
+******* More complex example *********
+
+Teraz chcemy wyswietlic nazwy panstw z nazwami ich miast.
+Robimy to umieszczajac kolejna liste w kazdym elemencie <li> z nazwa panstwa.
+Przeprowadzamy to za pomoca ponizszego kodu.
+
+<ul>
+	<li ng-repeat="country in countries">
+		{{ country.name }}
+		<ul>
+			<li ng-repeat="city in country.cities">
+				{{ city.name }}
+			</li>
+		</ul>
+	</li>
+</ul>
+
+
+
+
+
 -->
