@@ -13,26 +13,32 @@ var myApp = angular
 													},
 													{
 														name: 'Bill',
-														dateOfBirth: new Date('November 13, 1989'), 
+														dateOfBirth: new Date('September 13, 1989'), 
 														gender: 'Male',
 														salary: 33333.76777,
 													},
 													{
 														name: 'Josh',
-														dateOfBirth: new Date('November 23, 1993'), 
+														dateOfBirth: new Date('June 23, 1993'), 
 														gender: 'Male',
 														salary: 44444.6666,
 													},
 													{
-														name: 'Benny',
-														dateOfBirth: new Date('November 13, 2000'), 
+														name: 'Andrew',
+														dateOfBirth: new Date('January 13, 2000'), 
 														gender: 'Male',
 														salary: 55555.099,
+													},
+													{
+														name: 'John',
+														dateOfBirth: new Date('March 13, 2000'), 
+														gender: 'Male',
+														salary: 66666.999,
 													},
 												];
 
 										$scope.employees = employees;
-										$scope.rowLimit = 2;
+										$scope.sortColumn = 'name';
 
 											});
 

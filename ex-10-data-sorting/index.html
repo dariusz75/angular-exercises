@@ -3,38 +3,148 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Angular ex-10 Data Sorting</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
 	<script src="angular.min.js"></script>
 	<script src="script.js"></script>
 </head>
 <body>
-	<div ng-controller="myController">	
-	Rows to display:
-	<input type="number" step="1" min="0" max="5" ng-model="rowLimit">
-	<br><br>
+	<div ng-controller="myController">
+	<h3>Data unsorted</h3>
 		<table>
 			<thead>
 				<tr>
 					<th>Name</th>
 					<th>Date of birth</th>
 					<th>Gender</th>
-					<th>Salary - number</th>
-					<th>Salary - currency</th>
+					<th>Salary</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="employee in employees | limitTo:rowLimit">
+				<tr ng-repeat="employee in employees">
 					<td>{{ employee.name | uppercase }}</td>
 					<td>{{ employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
 					<td>{{ employee.gender | lowercase }}</td>
-					<td>{{ employee.salary | number:2 }}</td>
 					<td>{{ employee.salary | currency:"£" }}</td>
 				</tr>
 			</tbody>
 		</table>
 
+	<h3>Names alphabetical ascending</h3>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Date of birth</th>
+					<th>Gender</th>
+					<th>Salary</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="employee in employees | orderBy: '+name' ">
+					<td>{{ employee.name | uppercase }}</td>
+					<td>{{ employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+					<td>{{ employee.gender | lowercase }}</td>
+					<td>{{ employee.salary | currency:"£" }}</td>
+				</tr>
+			</tbody>
+		</table>
 
+		<h3>Names alphabetical descending</h3>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Date of birth</th>
+					<th>Gender</th>
+					<th>Salary</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="employee in employees | orderBy: '-name' ">
+					<td>{{ employee.name | uppercase }}</td>
+					<td>{{ employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+					<td>{{ employee.gender | lowercase }}</td>
+					<td>{{ employee.salary | currency:"£" }}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h3>Sort by:</h3>
+		<select ng-model="sortColumn">
+			<option value="+name">Name ASC</option>
+			<option value="-name">Name DSC</option>
+			<option value="+dateOfBirth">Date of Birth ASC</option>
+			<option value="-dateOfBirth">Date of Birth DSC</option>
+			<option value="+gender">Gender ASC</option>
+			<option value="-gender">Gender DSC</option>
+			<option value="+salary">Salary ASC</option>
+			<option value="-salary">Salary DSC</option>
+		</select>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Date of birth</th>
+					<th>Gender</th>
+					<th>Salary</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="employee in employees | orderBy: sortColumn">
+					<td>{{ employee.name | uppercase }}</td>
+					<td>{{ employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+					<td>{{ employee.gender | lowercase }}</td>
+					<td>{{ employee.salary | currency:"£" }}</td>
+				</tr>
+			</tbody>
+		</table>
 
 	</div>
 </body>
 </html>
+
+<!--
+Powyzszy kod pokazuje kilka metod filtrowania danych.
+3 pierwsze sa jasne w zrozumieniu, zajmiemy sie metoda czwarta.
+
+Metoda to pozwala nam na uporzadkowanie danych wedlug wskazanej opcji.
+W tym celu posluzymy sie elementem <select></select>
+Nastepnie przypiszemy mu kontroler <select ng-model="sortColumn"></select>
+Kontroler ten oczywiscie umieszczamy rowniez w naszym modelu w pliku js - $scope.sortColumn = 'name';
+'name' oznacza to ze przypisalismy domyslne sortowanie poprzez nazwe osoby.
+
+Nastepnie w tagu <select> okreslamy opcje za pomoca ktorych chcemy sortowac tabele.
+
+<select ng-model="sortColumn">
+	<option value="+name">Name ASC</option>
+	<option value="-name">Name DSC</option>
+	<option value="+dateOfBirth">Date of Birth ASC</option>
+	<option value="-dateOfBirth">Date of Birth DSC</option>
+	<option value="+gender">Gender ASC</option>
+	<option value="-gender">Gender DSC</option>
+	<option value="+salary">Salary ASC</option>
+	<option value="-salary">Salary DSC</option>
+</select>
+
+Teraz pozostaje nam juz tylko ustawienie metody sortowania jako sortColumn w atrybucie ng-repeat naszej tablicy, czyli 
+<tr ng-repeat="employee in employees | orderBy: sortColumn">
+	<td>{{ employee.name | uppercase }}</td>
+	<td>{{ employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+	<td>{{ employee.gender | lowercase }}</td>
+	<td>{{ employee.salary | currency:"£" }}</td>
+</tr>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
 
