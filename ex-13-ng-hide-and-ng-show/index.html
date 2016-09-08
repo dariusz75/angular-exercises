@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular ex-12 Data Sorting By Multiple Properties</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="angular.min.js"></script>
+	<script src="script.js"></script>
+</head>
+<body>
+	<div ng-controller="myController">
+
+		<h3>Sort by search filter</h3>
+		
+		<input type="text" placeholder="Search name" ng-model="searchText.name" >
+		<input type="text" placeholder="Search city" ng-model="searchText.city" >
+		<input type="checkbox" ng-model="exactMatch" > Exact match
+		<br><br>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Date of birth</th>
+					<th>City</th>
+					<th>Gender</th>
+					<th>Salary</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="employee in employees | filter:searchText:exactMatch">
+					<td>{{ employee.name | uppercase }}</td>
+					<td>{{ employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+					<td>{{ employee.city }}</td>
+					<td>{{ employee.gender | lowercase }}</td>
+					<td>{{ employee.salary | currency:"£" }}</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</body>
+</html>
+
+<!--
+Zasada dzialanie filtra search jest bardzo prosta.
+W tagu <input> okreslamy ng-model pod dowolna nazwa. W naszym przypadku jest to ng-model="searchText".
+Nastepnie w dyrectywie ng-repeat umieszczamy filter, ktory jest naszym modelem, 
+czyli <tr ng-repeat="employee in employees | filter:searchText">
+
+W ten sposob przeszukujemy wszystkie komorki tabeli.
+Jezeli interesuje nas przeszukiwanie w obrebie tylko jednej kolumny mozemy ja okreslic w modelu, w oknie input, np:
+<input type="text" placeholder="Search employees" ng-model="searchText.name" >
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
