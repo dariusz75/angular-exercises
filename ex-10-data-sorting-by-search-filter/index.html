@@ -10,8 +10,10 @@
 <body>
 	<div ng-controller="myController">
 
-		<h3>Sort by search:</h3>
+		<h3>Sort by search filter</h3>
 		
+		<input type="text" placeholder="Search employees" ng-model="searchText" >
+		<br><br>
 		<table>
 			<thead>
 				<tr>
@@ -22,7 +24,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="employee in employees">
+				<tr ng-repeat="employee in employees | filter:searchText">
 					<td>{{ employee.name | uppercase }}</td>
 					<td>{{ employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
 					<td>{{ employee.gender | lowercase }}</td>
@@ -36,8 +38,14 @@
 </html>
 
 <!--
+Zasada dzialanie filtra search jest bardzo prosta.
+W tagu <input> okreslamy ng-model pod dowolna nazwa. W naszym przypadku jest to ng-model="searchText".
+Nastepnie w dyrectywie ng-repeat umieszczamy filter, ktory jest naszym modelem, 
+czyli <tr ng-repeat="employee in employees | filter:searchText">
 
-
+W ten sposob przeszukujemy wszystkie komorki tabeli.
+Jezeli interesuje nas przeszukiwanie w obrebie tylko jednej kolumny mozemy ja okreslic w modelu, w oknie input, np:
+<input type="text" placeholder="Search employees" ng-model="searchText.name" >
 -->
 
 
