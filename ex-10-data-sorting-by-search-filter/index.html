@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular ex-10 Data Sorting By Table Header</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="angular.min.js"></script>
+	<script src="script.js"></script>
+</head>
+<body>
+	<div ng-controller="myController">
+
+		<h3>Sort by search:</h3>
+		
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Date of birth</th>
+					<th>Gender</th>
+					<th>Salary</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="employee in employees">
+					<td>{{ employee.name | uppercase }}</td>
+					<td>{{ employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+					<td>{{ employee.gender | lowercase }}</td>
+					<td>{{ employee.salary | currency:"£" }}</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</body>
+</html>
+
+<!--
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
