@@ -2,7 +2,7 @@
 <html lang="en" ng-app="myModule">
 <head>
 	<meta charset="UTF-8">
-	<title>Angular ex-12 Data Sorting By Multiple Properties</title>
+	<title>Angular ex-13 ng-hide and ng-show directives</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<script src="angular.min.js"></script>
 	<script src="script.js"></script>
@@ -10,11 +10,8 @@
 <body>
 	<div ng-controller="myController">
 
-		<h3>Sort by search filter</h3>
-		
-		<input type="text" placeholder="Search name" ng-model="searchText.name" >
-		<input type="text" placeholder="Search city" ng-model="searchText.city" >
-		<input type="checkbox" ng-model="exactMatch" > Exact match
+	<input type="checkbox" ng-model="hideSalary"> Hide salary
+	<input type="checkbox" ng-model="hideGender"> Hide gender
 		<br><br>
 		<table>
 			<thead>
@@ -22,17 +19,19 @@
 					<th>Name</th>
 					<th>Date of birth</th>
 					<th>City</th>
-					<th>Gender</th>
-					<th>Salary</th>
+					<th ng-hide="hideGender">Gender</th>
+					<th ng-hide="hideSalary">Salary</th>
+					<th ng-show="hideSalary">Salary</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="employee in employees | filter:searchText:exactMatch">
+				<tr ng-repeat="employee in employees">
 					<td>{{ employee.name | uppercase }}</td>
 					<td>{{ employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
 					<td>{{ employee.city }}</td>
-					<td>{{ employee.gender | lowercase }}</td>
-					<td>{{ employee.salary | currency:"£" }}</td>
+					<td ng-hide="hideGender">{{ employee.gender | lowercase }}</td>
+					<td ng-hide="hideSalary">{{ employee.salary | currency:"£" }}</td>
+					<td ng-show="hideSalary">£££££££</td>
 				</tr>
 			</tbody>
 		</table>
@@ -42,14 +41,24 @@
 </html>
 
 <!--
-Zasada dzialanie filtra search jest bardzo prosta.
-W tagu <input> okreslamy ng-model pod dowolna nazwa. W naszym przypadku jest to ng-model="searchText".
-Nastepnie w dyrectywie ng-repeat umieszczamy filter, ktory jest naszym modelem, 
-czyli <tr ng-repeat="employee in employees | filter:searchText">
+Dyrektywy ng-show i ng-hide sluza do ukrywania lub pokazywania elementow html.
+Naszym zadaniem jest ukrycie jednej z kolumn tabeli po kliknieciu na checkbox.
+W tym celu naszemu checkboxowi musimy przypisac model o dowolnej nazwie, 
+w naszym przypadku jet to <input type="checkbox" ng-model="hideSalary">
 
-W ten sposob przeszukujemy wszystkie komorki tabeli.
-Jezeli interesuje nas przeszukiwanie w obrebie tylko jednej kolumny mozemy ja okreslic w modelu, w oknie input, np:
-<input type="text" placeholder="Search employees" ng-model="searchText.name" >
+Nastepnie przypisujemy dyrektywe hide do elementow ktore chcemy schowac,
+w naszym przypadku bedza to naglowek Salary oraz kolumna z kwotami, czyli:
+
+<th ng-hide="hideSalary">Salary</th>
+<td ng-hide="hideSalary">{{ employee.salary | currency:"£" }}</td>
+
+Jako nazwe modelu dla dyrektywy podajemy 'hideSalary'.
+hideSalary nie jest dostepna jako zmienna w $scope object, poniewaz nie zadeklarowalismy jej w pliku js.
+Skoro nie jest dostepna, jest zatem domyslnie 'undefined', a skoro jest 'undefined' to w przypadku kiedy 
+ng-hide="hideSalary", nasza dyrektywa hide, rowniez jest undefined i nie dziala wiec element jest wyswietlany.
+
+Po kliknieciu w checkbox zmieniamy wartosc modelu 'hideSalary' na true i tym samym wlaczamy dyrektywe ng-hide="hideSalary" ktora ukrywa okreslone elementy.
+
 -->
 
 
