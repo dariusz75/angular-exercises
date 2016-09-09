@@ -1,37 +1,34 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myModule">
+<html lang="en" ng-app>
 <head>
 	<meta charset="UTF-8">
-	<title>Angular ex-13 ng-hide and ng-show directives</title>
+	<title>Angular ex-13 ng-init</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<script src="angular.min.js"></script>
 	<script src="script.js"></script>
 </head>
 <body>
-	<div ng-controller="myController">
+	<div ng-init=" employees = [
+															{ name: 'Ben', city: 'London', gender: 'Male'},
+															{ name: 'Bill', city: 'Moscow', gender: 'Male' },
+															{ name: 'Josh', city: 'Berlin', gender: 'Male' },
+															{ name: 'Andrew', city: 'Warsaw', gender: 'Male' },
+															{ name: 'John', city: 'Paris', gender: 'Male' },
+															]">
 
-	<input type="checkbox" ng-model="hideSalary"> Hide salary
-	<input type="checkbox" ng-model="hideGender"> Hide gender
-		<br><br>
 		<table>
 			<thead>
 				<tr>
 					<th>Name</th>
-					<th>Date of birth</th>
 					<th>City</th>
-					<th ng-hide="hideGender">Gender</th>
-					<th ng-hide="hideSalary">Salary</th>
-					<th ng-show="hideSalary">Salary</th>
+					<th>Gender</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat="employee in employees">
-					<td>{{ employee.name | uppercase }}</td>
-					<td>{{ employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+					<td>{{ employee.name }}</td>
 					<td>{{ employee.city }}</td>
-					<td ng-hide="hideGender">{{ employee.gender | lowercase }}</td>
-					<td ng-hide="hideSalary">{{ employee.salary | currency:"£" }}</td>
-					<td ng-show="hideSalary">£££££££</td>
+					<td>{{ employee.gender }}</td>
 				</tr>
 			</tbody>
 		</table>
@@ -41,24 +38,7 @@
 </html>
 
 <!--
-Dyrektywy ng-show i ng-hide sluza do ukrywania lub pokazywania elementow html.
-Naszym zadaniem jest ukrycie jednej z kolumn tabeli po kliknieciu na checkbox.
-W tym celu naszemu checkboxowi musimy przypisac model o dowolnej nazwie, 
-w naszym przypadku jet to <input type="checkbox" ng-model="hideSalary">
-
-Nastepnie przypisujemy dyrektywe hide do elementow ktore chcemy schowac,
-w naszym przypadku bedza to naglowek Salary oraz kolumna z kwotami, czyli:
-
-<th ng-hide="hideSalary">Salary</th>
-<td ng-hide="hideSalary">{{ employee.salary | currency:"£" }}</td>
-
-Jako nazwe modelu dla dyrektywy podajemy 'hideSalary'.
-hideSalary nie jest dostepna jako zmienna w $scope object, poniewaz nie zadeklarowalismy jej w pliku js.
-Skoro nie jest dostepna, jest zatem domyslnie 'undefined', a skoro jest 'undefined' to w przypadku kiedy 
-ng-hide="hideSalary", nasza dyrektywa hide, rowniez jest undefined i nie dziala wiec element jest wyswietlany.
-
-Po kliknieciu w checkbox zmieniamy wartosc modelu 'hideSalary' na true i tym samym wlaczamy dyrektywe ng-hide="hideSalary" ktora ukrywa okreslone elementy.
-
+Ta metoda nie jest zalecana, zamiast niej powinnismy uzyc kontrolera w pliku js.
 -->
 
 
