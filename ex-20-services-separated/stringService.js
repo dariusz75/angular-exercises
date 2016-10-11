@@ -34,4 +34,7 @@ Funkcja ta ma za zadanie zwrocic nam obiekt javascript.
 
 processString to w naszym przypadku dowolna nazwa key obiektu.
 
+
+
+https://www.youtube.com/watch?v=rlx1cf7qM0E&index=20&list=PL6n9fhu94yhWKHkcL7RJmmXyxkuFB3KSl
 */

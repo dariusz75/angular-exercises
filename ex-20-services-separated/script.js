@@ -4,23 +4,20 @@ var myApp = angular
 						.module('myModule', [])
 						.controller('myController', function ($scope, stringService) {
 												
-												$scope.transformString = function (input) {
+												$scope.putSpaces = function (input) {
 														
 													$scope.output = stringService.processString(input);
 
 												}
 											});
 
-
 /*
-Do utworenia serwisu sluzy metoda factory().
-Jako pierwszy parametr podajemy dowolna nazwe serwisu.
-Drugi parametr to bezimienna funkcja.
-
-factory('myService', function(){})
-
-Funkcja ta ma za zadanie zwrocic nam obiekt javascript.
-Pierwszy parametr funkcji to obiekt $scope.
-Drugi to, w naszym przypadku, nazwa serwisu ktory chcemy wstrzyknac do kontrolera.
+Aby przypisac nasz serwis do kontrolera musimy podac jego nazwe w parametrze funkcji kontrolera zaraz po $scope.
+W naszym przypadku jest to stringService.
+Nastepnie przypisujemy scopowi funkcje do ktorej bedziemy sie odnosic z poziomu pliku html, w dyrektywie ng-click
+i nadajemy jej dowolna nazwe, w naszym przypadku jest to putSpaces.
+Nastepny krok, to przypisanie scopowi wartosci output ktora chcemy wyswietlic w oknie "Corrected Text",
+nazwiemy ja output.
+$scope.output referuje do naszego servisu stringService za pomoco ktorego referujemy do funkcji processString(input).
 
 */
