@@ -2,25 +2,19 @@
 <html lang="en" ng-app="myModule">
 <head>
 	<meta charset="UTF-8">
-	<title>Angular ex-01 Module and Controller</title>
+	<title>Angular ex-02 Module and Controller</title>
 	<script src="angular.min.js"></script>
 	<script src="script.js"></script>
 </head>
-<body ng-controller="registeredController">
+<body ng-controller="myRegisteredController">
 	<div>
-		{{ message }}
+		<p>{{ firstMessage }}</p>
 	</div>
 	<div>
-		<p>20 + 30 = {{20+30}}</p>
+		<p>{{ secondMessage }}</p>
 	</div>
 	<div>
-		<p>His name is {{ {name: 'David', age: '33'}.name }}.</p>
-	</div>
-	<div>
-		<p>The first index name is {{ ['Daniel', 'David', 'John'][0] }}.</p>
-	</div>
-	<div>
-		{{ endMessage }}
+		<p>{{ thirdMessage }}</p>
 	</div>
 </body>
 </html>

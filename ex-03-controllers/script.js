@@ -31,8 +31,9 @@ myApp.controller('registeredController', function ($scope) {
 	};
 
 	$scope.myPerson = person;
-	$scope.message = 'Angular Tutorial Start';
-	$scope.endMessage = 'The End of Angular Tutorial';
+	$scope.firstMessage = 'Angular Tutorial - first message';
+	$scope.secondMessage = 'Some text - second message';
+	$scope.thirdMessage = 'End of Angular Tutorial - third message'
 
 
 });
