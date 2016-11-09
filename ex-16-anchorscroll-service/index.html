@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular ex-16 anchorscroll service</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="angular.min.js"></script>
+	<script src="angular-route.min.js"></script>
+	<script src="script.js"></script>
+</head>
+<body ng-controller="myController">
+	<button id="top" ng-click="myScrollTo('bottom')">Go to the buttom of the page</button>
+	<div>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+	</div>
+	<button id="bottom" ng-click="myScrollTo('top')">Go to the top of the page</button>
+</body>
+</html>
+
+
+
+<!--
+
+anchorscroll service sluzy do przewijania strony do danego fragmentu.
+Aby ja zastosowac nalezy w pliku js utworzyc kontroler jak ponizej
+
+.controller('myController', function ($scope, $location, $anchorScroll) {
+												
+												$scope.myScrollTo = function (myScrollLocation) {
+													$location.hash(myScrollLocation);
+													$anchorScroll();												
+												};
+
+											});
+
+Nastepnie w dokumencie html uzywamy dyrektywy z funkcja jako wartosc dyrektywy.
+W funkcji podajemy argument ktory jest id elementu do ktorego chcemy przewijac 
+ekran po kliknieciu  ng-click="myScrollTo('top')"
+
+->
+
+
+
+
+
+
+
+
+
+
+

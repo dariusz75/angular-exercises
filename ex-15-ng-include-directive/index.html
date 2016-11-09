@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular ex-15 ng-include Directive</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="angular.min.js"></script>
+	
+	<script src="script.js"></script>
+</head>
+<body>
+	<h3>Component embeded from it's path</h3>
+	<div ng-controller="myController">
+		<div ng-include="'employee-table.html'"></div>
+	</div>
+	<br><br>
+
+	<h3>Component embeded from view controller</h3>
+	<div ng-controller="myController">
+		<div ng-include="employeeTable"></div>
+	</div>
+	<br><br>
+
+	<h3>Select view example</h3>
+	<div ng-controller="myController">
+		<select ng-model="employeeTable">
+			<option value="employee-table.html">Table</option>
+			<option value="employee-list.html">List</option>
+		</select>
+		<div ng-include="employeeTable"></div>
+	</div>
+
+	
+	</div>
+</body>
+</html>
+
+<!--
+ng-include jest jednym z najbardziej uzytecznych dyrektyw Angulara.
+Sluzy on do zagniezdzania komponentow w innych komponentach, czyli np dokumentow html w innych dokumentach.
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+

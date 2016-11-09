@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular ex-08 Events Handling</title>
+	<script src="angular.min.js"></script>
+	<script src="script.js"></script>
+</head>
+<body>
+	<div ng-controller="myController">	
+
+
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Likes</th>
+					<th>Dislikes</th>
+					<th>Like/Dislike</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="technology in technologies" >
+					<td>{{ technology.name }}</td>
+					<td>{{ technology.likes }}</td>
+					<td>{{ technology.dislikes }}</td>
+					<td><input type="button" value="Like" ng-click="incrementLikes(technology)"></td>
+					<td><input type="button" value="Dislike" ng-click="incrementDislikes(technology)"></td>
+				</tr>
+			</tbody>
+		</table>
+
+
+
+	</div>
+</body>
+</html>
+

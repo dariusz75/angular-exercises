@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Angular ex-13 ng-init</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="angular.min.js"></script>
+	<script src="script.js"></script>
+</head>
+<body>
+	<div ng-init=" employees = [
+															{ name: 'Ben', city: 'London', gender: 'Male'},
+															{ name: 'Bill', city: 'Moscow', gender: 'Male' },
+															{ name: 'Josh', city: 'Berlin', gender: 'Male' },
+															{ name: 'Andrew', city: 'Warsaw', gender: 'Male' },
+															{ name: 'John', city: 'Paris', gender: 'Male' },
+															]">
+
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>City</th>
+					<th>Gender</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="employee in employees">
+					<td>{{ employee.name }}</td>
+					<td>{{ employee.city }}</td>
+					<td>{{ employee.gender }}</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</body>
+</html>
+
+<!--
+Ta metoda nie jest zalecana, zamiast niej powinnismy uzyc kontrolera w pliku js.
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
