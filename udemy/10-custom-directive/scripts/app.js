@@ -48,13 +48,21 @@ myApp.controller('thirdController', ['$scope', function($scope) {
 /* Tworzenie Dyrektywu */
 myApp.directive('textPanel', function() {
 	return {
-		template: '<h3>This h1 element is a template which comes from the textPanel directive.</h3>'
+		template: '<h3>This h3 element is a template which comes from the textPanel directive.</h3>'
 	}
 });
 
+myApp.directive('textPanel2', function() {
+	return {
+		template: '<h4>This h4 element is a template which comes from the textPanel2 directive.</h4>'
+	}
+});
 
-
-
+myApp.directive('textPanel3', function() {
+	return {
+		template: '<h5>This h5 element is a template which comes from the textPanel3 directive.</h5>'
+	}
+});
 
 
 
