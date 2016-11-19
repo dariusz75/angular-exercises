@@ -96,4 +96,5 @@ restrict: 'A', - metoda 1 - atrybut
 restrict: 'C', - metoda 1 - klasa
 restrict: 'EAC', wszystkie powyzsze metody
 
+restrict: 'AE', - ustawienie domyslne
 */

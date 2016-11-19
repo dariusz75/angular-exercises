@@ -46,14 +46,22 @@ myApp.controller('thirdController', ['$scope', function($scope) {
 
 
 /* Tworzenie Dyrektywu */
-myApp.directive('textPanel', function() {
+myApp.directive('textTemplate', function() {
 	return {
-		template: '<h3>This h1 element is a template which comes from the textPanel directive.</h3>'
+		template: '<h3>This h1 element is a template which comes from the textTemplate directive.</h3>'
 	}
 });
 
+/*
+Oto sposob na podpiecie templateu zapisanego jako oddzielny plik html.
+Metoda rozni sie tym, ze zamiast wlasnosci template w obiekcie stosujemy templateUrl.
+*/
 
-
+myApp.directive('panelTemplate', function() {
+	return {
+		templateUrl: 'templates/text-panel.html'
+	}
+});
 
 
 
