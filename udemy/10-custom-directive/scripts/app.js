@@ -1,5 +1,5 @@
 /* W celu uzycia routingu musimy poinformowac Angulara deklarujac ngRoute module w zaleznosciach modulu. */
-var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate']);
+var myApp = angular.module('myApp', ['ngRoute']);
 
 
 
@@ -43,3 +43,18 @@ myApp.controller('secondController', ['$scope', function($scope) {
 myApp.controller('thirdController', ['$scope', function($scope) {
 	$scope.message = "This message comes from the Third Controller.";
 }]);
+
+
+/* Tworzenie Dyrektywu */
+myApp.directive('textPanel', function() {
+	return {
+		template: '<h3>This h1 element is a template which comes from the textPanel directive.</h3>'
+	}
+});
+
+
+
+
+
+
+

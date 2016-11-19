@@ -5,7 +5,7 @@ var myApp = angular.module('myApp', ['ngRoute']);
 
 
 /* Nastepnie musimy skonfigurowac aplikacje za pomoca metody config 
-i okreslic nasz */
+i okreslic trase komponentow za pomoca $routeProvider */
 myApp.config(function ($routeProvider) {
 
 	$routeProvider
