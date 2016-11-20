@@ -1,11 +1,6 @@
-/* W celu uzycia routingu musimy poinformowac Angulara deklarujac ngRoute module w zaleznosciach modulu. */
 var myApp = angular.module('myApp', ['ngRoute']);
 
 
-
-
-/* Nastepnie musimy skonfigurowac aplikacje za pomoca metody config 
-i okreslic trase komponentow za pomoca $routeProvider */
 myApp.config(function ($routeProvider) {
 
 	$routeProvider
@@ -45,24 +40,68 @@ myApp.controller('thirdController', ['$scope', function($scope) {
 }]);
 
 
-/* Tworzenie Dyrektywu */
-myApp.directive('textTemplate', function() {
+/* 
+#### Tworzenie Dyrektywu ####
+Aby utworzyc dyrektyw nalezy uzyc funkcji directive().
+Funkcja ta pobiera 2 parametry, pierwszy to nazwa dyrektywu a drugi to funkcja 
+zwracajaca to co okreslimy w dyrektywie.
+W naszym przykladzie jest to template, czyli fragment strony zapisany w html.
+Nazwa dyrektywu musi byc zapisana w postaci camelCase.
+*/
+
+myApp.directive('textPanel', function() {
 	return {
-		template: '<h3>This h1 element is a template which comes from the textTemplate directive.</h3>'
+		restrict: 'E',
+		template: '<h3>This h3 element is a template which comes from the textPanel directive.</h3>'
 	}
 });
 
-/*
-Oto sposob na podpiecie templateu zapisanego jako oddzielny plik html.
-Metoda rozni sie tym, ze zamiast wlasnosci template w obiekcie stosujemy templateUrl.
-*/
-
-myApp.directive('panelTemplate', function() {
+myApp.directive('textPanel2', function() {
 	return {
+		restrict: 'A',
+		template: '<h4>This h4 element is a template which comes from the textPanel2 directive.</h4>'
+	}
+});
+
+myApp.directive('textPanel3', function() {
+	return {
+		restrict: 'C',
+		template: '<h5>This h5 element is a template which comes from the textPanel3 directive.</h5>'
+	}
+});
+
+myApp.directive('textPanel4', function() {
+	return {
+		restrict: 'EAC',
+		template: '<h2>This h2 element is a template which comes from the textPanel4 directive.</h2>'
+	}
+});
+
+myApp.directive('textPanel5', function() {
+	return {
+		restrict: 'EAC',
 		templateUrl: 'templates/text-panel.html'
 	}
 });
 
+/*
+Nastepnie umieszczamy w kodzie html strony nasze dyrektywy.
+Mozemy to zrobic na 3 rozne sposoby:
 
+1. Jako element
+<text-panel></text-panel>
+2. Jako atrybut
+<div text-panel></div>
+3.Jako klase 
+<div class="text-panel"></div>
 
+Sposob w jaki to zrobimy mozemy zadeklarowac z zwracanym obiekcie dyrektywu, 
+okreslajac wartosc wlasnosci restrict:
 
+restrict: 'E', - metoda 1 - element
+restrict: 'A', - metoda 1 - atrybut
+restrict: 'C', - metoda 1 - klasa
+restrict: 'EAC', wszystkie powyzsze metody
+
+restrict: 'AE', - ustawienie domyslne
+*/

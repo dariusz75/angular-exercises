@@ -30,6 +30,7 @@ myApp.config(function ($routeProvider) {
 
 myApp.controller('mainController', ['$scope', function($scope) {	
 	$scope.message = "This message comes from the Main Controller.";
+	$scope.basicMessage = "This is a basic message and it comes from the mainController."
 }]);
 
 myApp.controller('firstController', ['$scope', function($scope) {
