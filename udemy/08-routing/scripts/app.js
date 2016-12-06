@@ -10,7 +10,7 @@ myApp.config(function ($routeProvider) {
 
 	$routeProvider
 
-	.when('/', {
+	.when('/main', {
 		templateUrl: 'pages/main.html',
 		controller: 'mainController'
 	})

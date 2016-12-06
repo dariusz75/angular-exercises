@@ -10,7 +10,7 @@ myApp.config(function ($routeProvider) {
 
 	$routeProvider
 
-	.when('/', {
+	.when('/main', {
 		templateUrl: 'pages/main.html',
 		controller: 'mainController'
 	})
@@ -59,7 +59,7 @@ Metoda rozni sie tym, ze zamiast wlasnosci template w obiekcie stosujemy templat
 
 myApp.directive('panelTemplate', function() {
 	return {
-		templateUrl: 'templates/text-panel.html'
+		templateUrl: 'directives/panel1.html'
 	}
 });
 

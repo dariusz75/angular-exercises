@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" ng-app="myModule">
+<head>
+  <title>07 Controllers</title>
+  <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+  <link href='styles/main.css' rel='stylesheet' type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script scr="https://code.angularjs.org/1.5.8/angular-messages.min.js"></script>
+  <script src="scripts/app.js" type="text/javascript"></script>
+</head>
+<body>
+  <div ng-controller="mainController">
+    <h1>Calculate</h1>
+    <input ng-model="firstValueGrabbed" required="number"/>
+    <input ng-model="secondValueGrabbed" required="number"/>
+    <hr />
+    <h1>{{ score1() }}</h1>
+    <h1>{{ score2() }}</h1>
+  </div>
+</body>
+</html>
+
+<!--
+W celu wyswietlenia na ekranie przefiltrowanej wartosci okna input musimy zastosowac 
+{{ messageGrabbedToLowerCases() }}.
+Nawiasy okragle stosujemy poniewaz zmienna zadeklarowalismy jako funkcje.
+-->
+
+
+
+
+
+
+
+
+
+
