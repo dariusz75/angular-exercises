@@ -42,7 +42,7 @@
         <input type="text" id="image" ng-model="classified.image">
       </md-input-container>
       <md-button ng-if="!editing" ng-click="saveClassified(classified)" class="md-primary">Save</md-button>
-      <md-button ng-if="editing" ng-click="saveEdit()" class="md-primary">Save Edit</md-button>
+      <md-button ng-if="editing" ng-click="saveEdit()"" class="md-primary">Save Edit</md-button>
       <md-button ng-click="closeSidebar()" class="md-warn">Cancel</md-button>
 
       <pre> {{ classified | json }} </pre>
@@ -59,7 +59,7 @@
 			<div class="classified-info" ng-show="!showContact">
 				<h2 class="md-title"> {{ classified.title }} </h2>
 				<h3> {{ classified.posted | date: 'longDate' }} </h3>
-				<h3> {{ classified.price | currency: "£" }} </h3>
+				<h3> {{ classified.price | currency}} </h3>
 				<p> {{  classified.description }} </p>
 			</div>
 
@@ -79,8 +79,8 @@
 			<div class="classified-admin" ng-show="showAdmin == true">
 				<h3>Admin</h3>
 				<div layout="row">
-					<md-button class="md-primary">Edit</md-button>
-					<md-button class="md-warn">Delete</md-button>
+					<md-button class="md-primary" ng-click="editClassified(classified)">Edit</md-button>
+					<md-button class="md-warn" ng-click="deleteClassified($event, classified)">Delete</md-button>
 				</div>
 			</div>
 
