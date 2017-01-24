@@ -15,13 +15,32 @@
 			<md-icon class="mdi mdi-plus-circle"></md-icon>
 			New Classified
 		</md-button>
+		<md-button ng-click="openSidebar()">
+			<md-icon class="mdi mdi-plus-circle"></md-icon>
+			New Classified
+		</md-button>
+		<md-button ng-click="showFilters = true">
+			<md-icon class="mdi mdi-magnify"></md-icon>
+			Search
+		</md-button>
 	</div>
 </md-toolbar>
+
+<div class="filters" layout="row" layout-align="center center" ng-show="showFilters">
+	<md-input-container>
+		<label>Enter search term</label>
+		<input type="text" ng-model="classifiedsFilter">
+	</md-input-container>
+	<div layout="row">
+		<md-button class="md-warn" ng-click="classifiedsFilter='' ">Clear</md-button>
+	</div>
+</div>
 
 <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
 	<md-toolbar>
 		<h1 class="md-toolbar-tools">Add a Classified</h1>
 	</md-toolbar>
+
 
 	<md-content layout-padding>
     <form>
@@ -52,7 +71,7 @@
 </md-sidenav>
 
 <md-content clasc="md-padding" layout="row" layout-wrap>
-	<md-card ng-repeat="classified in classifieds" flex="30">
+	<md-card class="classified" ng-repeat="classified in classifieds | filter: classifiedsFilter" flex="30">
 		<img ng-src="{{ classified.image }}">
 		
 		<md-card-content>
@@ -95,5 +114,6 @@
 <script src="/scripts/app.js"></script>
 <script src="/components/classifiedsCtrl.js"></script>
 <script src="/components/classifiedsFactory.js"></script>
+<script src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
 </body>
 </html>
