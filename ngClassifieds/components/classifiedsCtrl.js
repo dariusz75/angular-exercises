@@ -2,7 +2,7 @@
 	'ese strict';
 
 	angular.module('ngClassifieds')
-	.controller('classifiedsCtrl', function($scope, $http, classifiedsFactory, $mdSidenav, $mdToast, $mdDialog) {
+	.controller('classifiedsCtrl', function($scope, $http, classifiedsFactory, $mdSidenav, $mdToast, $mdDialog, $mdSelect) {
 
 		classifiedsFactory.getClassifieds().then(function(classifieds){
 			$scope.classifieds = classifieds.data
@@ -13,6 +13,8 @@
 			phone: '07707636696',
 			email: 'darius32@op.pl'
 		}
+
+		$scope.categories = getCategories($classifieds);
 
 		$scope.openSidebar = function() {
 			$mdSidenav('left').open();
@@ -69,6 +71,20 @@
 						.position('top, right')
 						.hideDelay(3000)
 					);
+		}
+
+		function getCategories(classifieds) {
+
+			var categories = [];
+
+			angular.forEach(classifieds, function(item) {
+				angular.forEach(item.categories, function(category) {
+					categories.push(category);
+				});
+			});
+
+			return _.uniq(categories);
+
 		}
 
 	});

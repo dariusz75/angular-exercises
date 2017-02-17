@@ -1,3 +1,5 @@
+<!-- experimental branch -->
+
 <!DOCTYPE html>
 <html ng-app="ngClassifieds" ng-init="message = 'hallo!!!' ">
 <head>
@@ -31,6 +33,16 @@
 		<label>Enter search term</label>
 		<input type="text" ng-model="classifiedsFilter">
 	</md-input-container>
+
+	<md-input-container>
+		<label>Category</label>
+		<md-select ng-model="someModel">
+			<md-option >
+				{{categories.category}}
+			</md-option>
+		</md-select>
+	</md-input-container>
+
 	<div layout="row">
 		<md-button class="md-warn" ng-click="classifiedsFilter='' ">Clear</md-button>
 	</div>
@@ -115,5 +127,6 @@
 <script src="/components/classifiedsCtrl.js"></script>
 <script src="/components/classifiedsFactory.js"></script>
 <script src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
 </body>
 </html>
