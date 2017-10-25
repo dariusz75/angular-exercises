@@ -3,12 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Angular ex-07 ng-repeat directive</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 	<script src="angular.min.js"></script>
 	<script src="script.js"></script>
 </head>
 <body>
+<div  class="container">
+
 	<div ng-controller="myController">	
-		<table>
+		<table class="table">
 			<thead>
 				<tr>
 					<th>First Name</th>
@@ -26,6 +32,16 @@
 				</tr>
 			</tbody>	
 		</table>
+		<!--
+		Abowe we have a ng-repeat directive example.
+		The data in the table comes from the employees array which is located in the controller (myController in script.js file).
+		We can access to the employees array via the $scope.
+		$scope.employees = employees;
+
+		Then, to use ng-repeat directive we need to specify refference name for each element in the array.
+		In our case let's assign the name "employee".
+		The mechanism is similar to javascript forEach method.
+		-->
 	</div>
 
 	<h3>Another example</h3>
@@ -55,52 +71,21 @@
 	<div ng-controller="myController">
 		<ul>
 			<li ng-repeat="country in countries">
-				{{ country.name }} - the index is {{ $index }}
+				{{ country.name }} - the index is <b>{{ $index }}</b>
 				<ul>
 					<li ng-repeat="city in country.cities">
-						{{ city.name }}  - the index is {{ $parent.$index }}.{{ $index }}
+						{{ city.name }}  - the index is <b>{{ $parent.$index }}.{{ $index }}</b>
 					</li>
 				</ul>
 			</li>
 		</ul>
 	</div>
 
+</div>
 </body>
 </html>
 
 <!--
-Powyzej mamy przyklad uzycia ng-repeat directive.
-Dane do wyswietlenia w tabeli pochodza z tabeli employees, w pliku js, ktora z kolei zawiera liste obiektow.
-
-var employees = [ 
-									{ firstName: 'Ben', lastName: 'Hastings', gender: 'Male',salary: 5500 },
-									{ firstName: 'John', lastName: 'Smith', gender: 'Male', salary: 6500 },
-									{ firstName: 'Ana', lastName: 'Tylor', gender: 'Female', salary: 7500 },
-									{ firstName: 'Josh', lastName: 'Maker', gender: 'Male', salary: 8500 },
-									{ firstName: 'Sofia', lastName: 'Cool', gender: 'Female', salary: 9500 },
-								];
-
-$scope.employees = employees;
-
-
-Nazwa 'employee' w ng-repeat="employee in employees" to nazwa dowolna, przy ktorej pomocy
-referujemy do kolejnych elementow w tabeli.
-Jest to nieco podobne do dzialanie 'for each albo map'.
-
-Za pomoca ponizszego kodu:
-
-<tr ng-repeat="employee in employees">
-	<td>{{ employee.firstName }}</td>
-	<td>{{ employee.lastName }}</td>
-	<td>{{ employee.gender }}</td>
-	<td>{{ employee.salary }}</td>
-</tr>
-
-odwolujemy sie do kazdego elementu (employee - nazwa dowolna) tabeli employees ($scope.employees = employees;
-)
-
-Nastepnie zadamy aby na podstawie danych zebranych z kazdego elementu tabeli, ktory jest obiektem zostala wygenerowana zawartosc tabeli.
-
 
 
 

@@ -12,7 +12,7 @@ var myApp = angular
 																														{ firstName: 'Sofia', lastName: 'Cool', gender: 'Female', salary: 9500 },
 																													];
 
-																					var countrie = [
+																					var countries = [
 																														{
 																															name: 'UK',
 																															cities: [
