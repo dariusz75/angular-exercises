@@ -2,19 +2,22 @@
 <html lang="en" ng-app="myModule">
 <head>
 	<meta charset="UTF-8">
-	<title>Angular ex-10 Data Sorting By Table Header</title>
-	<link rel="stylesheet" type="text/css" href="styles.css">
+	<title>Angular ex-11 Data Sorting By Search Filter</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 	<script src="angular.min.js"></script>
 	<script src="script.js"></script>
 </head>
 <body>
+<div class="container">
 	<div ng-controller="myController">
 
-		<h3>Sort by search filter</h3>
-		
-		<input type="text" placeholder="Search employees" ng-model="searchText" >
+		<h3>Sort by any value</h3>
+		<input type="text" placeholder="Search employees" ng-model="sortByAnyValue" >
 		<br><br>
-		<table>
+		<table class="table">
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -24,7 +27,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="employee in employees | filter:searchText">
+				<tr ng-repeat="employee in employees | filter:sortByAnyValue">
 					<td>{{ employee.name | uppercase }}</td>
 					<td>{{ employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
 					<td>{{ employee.gender | lowercase }}</td>
@@ -33,18 +36,44 @@
 			</tbody>
 		</table>
 
+		<h3>Sort by name</h3>
+		<input type="text" placeholder="Search employees" ng-model="sortByName.name" >
+		<br><br>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Date of birth</th>
+					<th>Gender</th>
+					<th>Salary</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="employee in employees | filter:sortByName">
+					<td>{{ employee.name | uppercase }}</td>
+					<td>{{ employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+					<td>{{ employee.gender | lowercase }}</td>
+					<td>{{ employee.salary | currency:"£" }}</td>
+				</tr>
+			</tbody>
+		</table>
+</div>
 	</div>
 </body>
 </html>
 
 <!--
-Zasada dzialanie filtra search jest bardzo prosta.
-W tagu <input> okreslamy ng-model pod dowolna nazwa. W naszym przypadku jest to ng-model="searchText".
-Nastepnie w dyrectywie ng-repeat umieszczamy filter, ktory jest naszym modelem, 
-czyli <tr ng-repeat="employee in employees | filter:searchText">
+The way the search filter works is very simple.
 
-W ten sposob przeszukujemy wszystkie komorki tabeli.
-Jezeli interesuje nas przeszukiwanie w obrebie tylko jednej kolumny mozemy ja okreslic w modelu, w oknie input, np:
+In the <input> tag, we specify ng-model under any name. In our case it is 
+ng-model="searchText"
+
+Next we place the "searchText" directive as a filter in our ng-repeat directive.
+<tr ng-repeat="employee in employees | filter:searchText">
+
+In this way we search all the cells of the table.
+
+If we are interested in searching within only one column, we can specify it in the model.
 <input type="text" placeholder="Search employees" ng-model="searchText.name" >
 -->
 
