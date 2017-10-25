@@ -3,14 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Angular ex-10 Data Sorting</title>
-	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 	<script src="angular.min.js"></script>
 	<script src="script.js"></script>
 </head>
 <body>
+<div class="container">
 	<div ng-controller="myController">
 	<h3>Data unsorted</h3>
-		<table>
+		<table class="table">
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -30,7 +34,7 @@
 		</table>
 
 	<h3>Names alphabetical ascending</h3>
-		<table>
+		<table class="table">
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -50,7 +54,7 @@
 		</table>
 
 		<h3>Names alphabetical descending</h3>
-		<table>
+		<table class="table">
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -80,7 +84,7 @@
 			<option value="+salary">Salary ASC</option>
 			<option value="-salary">Salary DSC</option>
 		</select>
-		<table>
+		<table class="table">
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -100,20 +104,32 @@
 		</table>
 
 	</div>
+	</div>
 </body>
 </html>
 
 <!--
-Powyzszy kod pokazuje kilka metod filtrowania danych.
-3 pierwsze sa jasne w zrozumieniu, zajmiemy sie metoda czwarta.
 
-Metoda to pozwala nam na uporzadkowanie danych wedlug wskazanej opcji.
-W tym celu posluzymy sie elementem <select></select>
-Nastepnie przypiszemy mu kontroler <select ng-model="sortColumn"></select>
-Kontroler ten oczywiscie umieszczamy rowniez w naszym modelu w pliku js - $scope.sortColumn = 'name';
-'name' oznacza to ze przypisalismy domyslne sortowanie poprzez nazwe osoby.
+The above code shows several methods of data filtering.
+The first three are clear in understanding, let's focus on the fourth method.
 
-Nastepnie w tagu <select> okreslamy opcje za pomoca ktorych chcemy sortowac tabele.
+This method allows us to organize data according to the selected option.
+
+For this purpose we will use the element 
+<select></select>
+
+Then we will assign a controller 
+<select ng-model="sortColumn"></select>
+
+This controller is obviously included in our model in the script.js file.
+$scope.sortColumn = 'name';
+
+
+'name' means that we have assigned a default sort by the name.
+
+Then in the <select> tag, we specify the options with which we want to sort the tables using 
++ for ascending
+- for sescending 
 
 <select ng-model="sortColumn">
 	<option value="+name">Name ASC</option>
@@ -126,7 +142,9 @@ Nastepnie w tagu <select> okreslamy opcje za pomoca ktorych chcemy sortowac tabe
 	<option value="-salary">Salary DSC</option>
 </select>
 
-Teraz pozostaje nam juz tylko ustawienie metody sortowania jako sortColumn w atrybucie ng-repeat naszej tablicy, czyli 
+
+Now we just set the sort method as sortColumn in ng-repeat naszej tablicy.
+
 <tr ng-repeat="employee in employees | orderBy: sortColumn">
 	<td>{{ employee.name | uppercase }}</td>
 	<td>{{ employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
@@ -134,17 +152,3 @@ Teraz pozostaje nam juz tylko ustawienie metody sortowania jako sortColumn w atr
 	<td>{{ employee.salary | currency:"£" }}</td>
 </tr>
 -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
