@@ -2,65 +2,53 @@
 <html lang="en" ng-app="myModule">
 <head>
 	<meta charset="UTF-8">
-	<title>Angular ex-05 ng-src directive</title>
+	<title>Angular ex-06 two-way data binding</title>
 	<script src="angular.min.js"></script>
 	<script src="script.js"></script>
 </head>
 <body>
-	<div ng-controller="myController">
-		<input type="text" ng-model="message" />
-		<p>{{ message }}</p>
-	</div>
-	<div ng-controller="myController">
-		<input type="text" ng-model="nonFromController" />
-		<p>{{ nonFromController }}</p>
-	</div>
-	<h3>More complex example</h3>
+	<h3>js object example from controller</h3>
 
 	<table ng-controller="myController">
 		<tr>
 			<td>First Name: </td>
-			<td>{{ employee.firstName }}</td>
+			<td>{{ employeeExample.firstName }}</td>
 		</tr>
 		<tr>
 			<td>Last Name: </td>
-			<td>{{ employee.lastName}} </td>
+			<td>{{ employeeExample.lastName }} </td>
 		</tr>
 		<tr>
 			<td>Gender: </td>
-			<td>{{ employee.gender }}</td>
+			<td>{{ employeeExample.gender }}</td>
 		</tr>
 	</table>
 
+	<h3>message example from $scope in controller</h3>
+	<div ng-controller="myController">
+		<input type="text" ng-model="message" />
+		<p>{{ message }}</p>
+	</div>
 
-	<!--
-	<table ng-controller="myController">
-		<tr>
-			<td>First Name</td>
-			<td><input type="text" ng-model="employee.firstName" /></td>
-		</tr>
-		<tr>
-			<td>Last Name</td>
-			<td><input type="text" ng-model="employee.lastName" /></td>
-		</tr>
-		<tr>
-			<td>Gender</td>
-			<td><input type="text" ng-model="employee.gender" /></td>
-		</tr>
-	</table>
-	-->
-
+	<h3>Two-way data binding example - not from controller</h3>
+	<p>Please type something in the input below</p>
+	<div ng-controller="myController">
+		<input type="text" ng-model="nonFromController" />
+		<p>{{ nonFromController }}</p>
+	</div>
+	
 </body>
 </html>
 
 <!-- 
 ng-model="message" pochodzi z pliku js i zawiera on text - Hallo Angular! 
+
 W zwiazku z tym, w pierwszym polu input i w pierwszym paragrafie pojawia sie ten sam tekst.
 Wpisujac text w polu input zmieniamy jego wartosc w paragrafie, poniewaz dokonujemy two-way-databinding i Angular updatuje model.
 
 Nastepnie mamy kolejne pole input i model ng-model="nonFromController".
 Model ten nie pochodzi z kontrolera wiec nie posiada zadnego przypisanego textu.
-Mimo to Anguler utworzy w pamieci i updatuje model i text ktory wpisujemy w drugim polu input pojawia sie w drugim paragrafie.
+Mimo to Angular utworzy w pamieci i updatuje model i text ktory wpisujemy w drugim polu input pojawia sie w drugim paragrafie.
 
 <h3>More complex example</h3>
 Ponizej tego tagu rozwiazenie wykorzystujace js object jako zrodlo danych.

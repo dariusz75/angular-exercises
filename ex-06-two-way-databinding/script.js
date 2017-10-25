@@ -11,6 +11,6 @@ var myApp = angular
 																								};
 
 																									$scope.message = 'Hallo Angular!';
-																									$scope.employee = employee;
+																									$scope.employeeExample = employee;
 
 																								});
