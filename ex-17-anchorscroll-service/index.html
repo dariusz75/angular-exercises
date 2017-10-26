@@ -3,12 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Angular ex-16 anchorscroll service</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<script src="angular.min.js"></script>
 	<script src="angular-route.min.js"></script>
 	<script src="script.js"></script>
 </head>
 <body ng-controller="myController">
+<div class="container">
 	<button id="top" ng-click="myScrollTo('bottom')">Go to the buttom of the page</button>
 	<div>
 		<p>
@@ -45,6 +49,7 @@
 		</p>
 	</div>
 	<button id="bottom" ng-click="myScrollTo('top')">Go to the top of the page</button>
+</div>
 </body>
 </html>
 
