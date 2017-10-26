@@ -23,7 +23,7 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="button" value="Correct" ng-click="transformString(input)"></td>
+				<td><input type="button" class="btn btn-info" value="Correct" ng-click="transformString(input)"></td>
 			</tr>
 		</table>
 	</div>
@@ -31,17 +31,28 @@
 </html>
 
 
+<!--
+In AngularJS, a service is a function, or object, that is available for, and limited to, your AngularJS application.
+In AngularJS you can make your own service, or use one of the many built-in services.
+
+
+Let's start from declaring nh-models.
+
+For the "Enter your text" window
+ng-model="input"
+
+And for "Corrected text" window
+ng-model="output"
+
+
+Now wee need to specify what we want to do when user clicks the button.
+For this we will use ng-click directive with assigned function.
+ng-click="transformString()
+Then we need to provide the data to the function. In our case it is an input data entered by the user.
+ng-click="transformString(input)
+
+Now we need to define the transformString() function in the controller. in our case in the script.js file.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+-->
