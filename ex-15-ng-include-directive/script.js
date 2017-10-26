@@ -45,6 +45,7 @@ var myApp = angular
 										$scope.employees = employees;
 										$scope.employeeTable = 'components/employee-table.html';
 										$scope.employeeList = 'components/employee-list.html';
+										$scope.defaultDisplay = 'components/employee-table.html';
 
 											});
 

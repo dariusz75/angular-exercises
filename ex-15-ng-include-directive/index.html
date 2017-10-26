@@ -21,11 +21,17 @@
 		<br><br>
 
 		<h3>Select view example</h3>
-		<select ng-model="employeeTableToDisplay">
+		<select ng-model="defaultDisplay">
 			<option value="components/employee-table.html">Table</option>
 			<option value="components/employee-list.html">List</option>
 		</select>
-		<div ng-include="employeeTableToDisplay"></div>
+		<div ng-include="defaultDisplay"></div>
+		<br><br>
+
+		<!--
+		<button type="button" class="btn btn-info" ng-model="employeeTableToDisplay2">Include component</button>
+		<div ng-model="employeeTableToDisplay2" ng-include="employeeTable"></div>
+		-->
 
 	</div>	
 </body>
