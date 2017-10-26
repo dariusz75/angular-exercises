@@ -2,7 +2,7 @@
 <html lang="en" ng-app="myModule">
 <head>
 	<meta charset="UTF-8">
-	<title>Angular ex-17 Routing</title>
+	<title>Angular ex-20 Remove # from URL</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="styles.css">
@@ -13,6 +13,7 @@
 	<script src="angular.min.js"></script>
 	<script src="https://code.angularjs.org/1.5.8/angular-route.min.js"></script>
 	<script src="script.js"></script>
+	 <base href="/">  
 </head>
 <body>
 	
@@ -28,9 +29,9 @@
 	      </button>
 	    </div>
 	    <ul class="nav nav-pills">
-	  		<li><a href="#/home">Home</a></li>
-	  		<li><a href="#/courses">Courses</a></li>
-	  		<li><a href="#/students">Students</a></li>
+	  		<li><a href="home">Home</a></li>
+	  		<li><a href="courses">Courses</a></li>
+	  		<li><a href="students">Students</a></li>
 			</ul>
 	   </div>
 	  </nav>
@@ -47,18 +48,19 @@
 
 
 <!--
-To start working with routing we need to include angular-route module into our project.
+To remove # from URL there are 4 simple steps.
 
-Next we need to spacify the url end's for the href attributes in navigation links.
-<li><a href="#/home">Home</a></li>
-<li><a href="#/courses">Courses</a></li>
-<li><a href="#/students">Students</a></li>
+1. 
+Enable html5mode routing.
+To do it we need to inject "$locationProvider" service into the config function,
+which in our case is in script.js file.
 
-Now we teel the index page where we want our views to be injected.
-To do it we use ng-view directive
-<ng-view></ng-view>
+2.
+Remove all "#/" symbols fron the links in index page.
 
 
+
+https://www.youtube.com/watch?v=XsRugDQaGOo&index=27&list=PL6n9fhu94yhWKHkcL7RJmmXyxkuFB3KSl
 ->
 
 
