@@ -24,17 +24,15 @@ myApp.factory('stringService', function(){
 
 
 /*
-Do utworenia serwisu sluzy metoda factory().
-Jako pierwszy parametr podajemy dowolna nazwe serwisu.
-Drugi parametr to bezimienna funkcja.
+To create the service we need to use the factory() method.
+As the first parameter, we give any name we want for our service.
+The second parameter is a anonymous function. In our case:
+factory('stringService, function(){})
 
-factory('myService', function(){})
+The function in factory method returns an object.
+We spacify the property name and assign the valu to it.
+In our case it is the function we want to use as our service.
 
-Funkcja ta ma za zadanie zwrocic nam obiekt javascript.
+To start usin the service globally we need to inject it into the controller. 
 
-processString to w naszym przypadku dowolna nazwa key obiektu.
-
-
-
-https://www.youtube.com/watch?v=rlx1cf7qM0E&index=20&list=PL6n9fhu94yhWKHkcL7RJmmXyxkuFB3KSl
 */
