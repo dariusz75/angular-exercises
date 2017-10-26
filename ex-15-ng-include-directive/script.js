@@ -43,8 +43,8 @@ var myApp = angular
 												];
 
 										$scope.employees = employees;
-										$scope.employeeTable = 'employee-table.html';
-										$scope.employeeList = 'employee-list.html';
+										$scope.employeeTable = 'components/employee-table.html';
+										$scope.employeeList = 'components/employee-list.html';
 
 											});
 

@@ -10,25 +10,24 @@
 	<script src="script.js"></script>
 </head>
 <body>
-<div class="container" ng-controller="myController">
-	<h3>Component embeded from it's path</h3>
-	<div ng-include="'hard-coded-employee-table.html'"></div>
-	<br><br>
+	<div class="container" ng-controller="myController">
 
-	<h3>Component embeded from view controller</h3>
-	<div ng-include="employeeTable"></div>
-	<br><br>
+		<h3>Component embeded from it's path</h3>
+		<div ng-include="'components/hard-coded-employee-table.html'"></div>
+		<br><br>
 
-	<h3>Select view example</h3>
-	<select ng-model="employeeTable">
-		<option value="employee-table.html">Table</option>
-		<option value="employee-list.html">List</option>
-	</select>
+		<h3>Component embeded from view controller</h3>
+		<div ng-include="employeeTable"></div>
+		<br><br>
 
-	<div ng-include="employeeTable"></div>
-	
+		<h3>Select view example</h3>
+		<select ng-model="employeeTableToDisplay">
+			<option value="components/employee-table.html">Table</option>
+			<option value="components/employee-list.html">List</option>
+		</select>
+		<div ng-include="employeeTableToDisplay"></div>
+
 	</div>	
-	</div>
 </body>
 </html>
 
