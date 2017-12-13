@@ -24,13 +24,13 @@
 		</tr>
 	</table>
 
-	<h3>message example from $scope in controller</h3>
+	<h3>Two-way data binding - default input value comes controller</h3>
 	<div ng-controller="myController">
 		<input type="text" ng-model="message" />
 		<p>{{ message }}</p>
 	</div>
 
-	<h3>Two-way data binding example - not from controller</h3>
+	<h3>Two-way data binding example - no default value</h3>
 	<p>Please type something in the input below</p>
 	<div ng-controller="myController">
 		<input type="text" ng-model="nonFromController" />
@@ -52,4 +52,18 @@ Mimo to Angular utworzy w pamieci i updatuje model i text ktory wpisujemy w drug
 
 <h3>More complex example</h3>
 Ponizej tego tagu rozwiazenie wykorzystujace js object jako zrodlo danych.
+-->
+
+<!--
+ng-model = "message" comes from js file and it contains text - Hallo Angular!
+
+
+Therefore, in the first input field and in the first paragraph, the same text appears.
+By entering the text in the input field, we change its value in the paragraph, because we make two-way-databinding and Angular updates the model.
+
+
+Then we have another input field and model ng-model = "nonFromController".
+This model does not come from the controller so it has no assigned text.
+Still Angular will create and update the model and text that we enter in the second input box appears in the second paragraph.
+
 -->

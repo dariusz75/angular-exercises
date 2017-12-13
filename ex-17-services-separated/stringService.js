@@ -24,8 +24,8 @@ myApp.factory('stringService', function(){
 
 
 /*
-To create the service we need to use the factory() method.
-As the first parameter, we give any name we want for our service.
+To create the separate service we need to use the factory() method.
+As the first parameter, we give any name we want for our service to be named.
 The second parameter is a anonymous function. In our case:
 factory('stringService, function(){})
 
@@ -33,6 +33,6 @@ The function in factory method returns an object.
 We spacify the property name and assign the valu to it.
 In our case it is the function we want to use as our service.
 
-To start usin the service globally we need to inject it into the controller. 
+Now, to start usin the service globally we need to inject it into the controller. 
 
 */

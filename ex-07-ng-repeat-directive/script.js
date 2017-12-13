@@ -39,32 +39,6 @@ var myApp = angular
 																														},
 																													];
 
-																							var countries = [
-																														{
-																															name: 'UK',
-																															cities: [
-																																				{name: 'London'},
-																																				{name: 'Bristol'},
-																																				{name: 'Leeds'},
-																																			]
-																														},
-																														{
-																															name: 'Poland',
-																															cities: [
-																																				{name: 'Warsaw'},
-																																				{name: 'Krakow'},
-																																				{name: 'Poznan'},
-																																			]
-																														},
-																														{
-																															name: 'Germany',
-																															cities: [
-																																				{name: 'Berlin'},
-																																				{name: 'Hamburgh'},
-																																				{name: 'Frankfurt'},
-																																			]
-																														},
-																													];
 
 
 																					$scope.employees = employees;

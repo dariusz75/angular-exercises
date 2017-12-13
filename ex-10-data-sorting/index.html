@@ -143,7 +143,7 @@ Then in the <select> tag, we specify the options with which we want to sort the 
 </select>
 
 
-Now we just set the sort method as sortColumn in ng-repeat naszej tablicy.
+Now we just set the sort method as sortColumn for ng-repeat in our table.
 
 <tr ng-repeat="employee in employees | orderBy: sortColumn">
 	<td>{{ employee.name | uppercase }}</td>

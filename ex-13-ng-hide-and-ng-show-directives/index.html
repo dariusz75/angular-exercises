@@ -38,10 +38,10 @@
 		<hr style="border: solid 1px">
 
 <!--
-The ng-show and ng-hide directives allow us to hide or show html elements.
+The ng-show and ng-hide directives allow us to shoe or to hide html elements.
 Our task is to hide one of the table columns when you click on checkbox.
 
-To do this, we need to assign a model with any name to our checkbox.
+To do this, we need to assign a model to our checkbox.
 In our case 
 <input type="checkbox" ng-model="hideSalary">
 
@@ -50,7 +50,7 @@ For example:
 <th ng-hide="hideSalary">Salary</th>
 <td ng-hide="hideSalary">{{ employee.salary | currency:"£" }}</td>
 
-Jako nazwe modelu dla dyrektywy ngihide podajemy 'hideSalary'.
+Jako nazwe modelu dla dyrektywy ng-hide podajemy 'hideSalary'.
 'hideSalary' nie jest dostepna jako zmienna w $scope object, poniewaz nie zadeklarowalismy jej w kontrolerze, w pliku script.js.
 Skoro nie jest dostepna, to domyslnie posiada wartosc "false", a skoro jest "false" to w przypadku kiedy przypisujemy ja do dyrektywy "ng-hide",
 to nasza dyrektywa ng-hide nie dziala wiec element jest wyswietlany.

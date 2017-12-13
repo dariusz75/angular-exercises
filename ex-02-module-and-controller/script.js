@@ -69,7 +69,7 @@ So for that we need to add in html tag the name of our module like
 
 
 And to display message stored in our controller object we need to add the name 
-of our registered controller to the tection we want to be linked with our controller.
+of our registered controller to the section we want to be linked with our controller.
 In this case is the body tag. 
 
 <body ng-controller="myRegisteredController">.
